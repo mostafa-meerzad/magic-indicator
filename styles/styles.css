@@ -1,0 +1,129 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+  color: whitesmoke;
+}
+
+.navbar-container {
+  color: #333;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  border-radius: 0.3rem;
+  margin: auto;
+  margin-top: 5rem;
+  background-color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.navbar-container .list {
+  display: flex;
+  list-style-type: none;
+  padding: 0.5rem 2rem;
+  margin: 0;
+  position: relative;
+}
+.navbar-container .list a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* li{
+    // position: absolute;
+  } */
+}
+.navbar-container .list a .icon {
+  fill: currentColor;
+  position: relative;
+  /*    width: 2em;
+     height: 2em; */
+}
+.navbar-container .list a .icon svg {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+}
+.navbar-container .list a .text {
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  display: none;
+}
+.navbar-container .list .active {
+  /*  &::after{
+     content: "";
+     display: block;
+     width: 1.6rem;
+     height: 1.6rem;
+     position: relative;
+     box-sizing: content-box;
+
+
+     right:-3.5rem;
+     top:-3rem;
+     transform: translate(100%);
+
+     border-top: 7px solid;
+     border-left: 7px solid;
+     border-top-left-radius: 100%;
+
+     background-color: red;
+   } */
+}
+.navbar-container .list .active .text {
+  opacity: 1;
+  pointer-events: all;
+  bottom: -1.5rem;
+}
+.navbar-container .list .active .icon {
+  transform: translateY(-100%);
+  z-index: 1;
+  padding: 0.6rem;
+  position: absolute;
+}
+.navbar-container .list .active .icon::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: hsl(100deg, 100%, 50%);
+  border-radius: 50%;
+  z-index: -1;
+  top: -20%;
+  bottom: -20%;
+  left: -20%;
+  right: -20%;
+}
+.navbar-container .list .active .icon::before {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 50%;
+  background-color: #333;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.navbar-container .list .active::before {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  position: relative;
+  box-sizing: content-box;
+  top: 0rem;
+  left: -2.3rem;
+  border-top: 7px solid;
+  border-right: 7px solid;
+  border-top-right-radius: 100%;
+  background-color: red;
+}/*# sourceMappingURL=styles.css.map */
