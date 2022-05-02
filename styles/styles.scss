@@ -1,167 +1,177 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 $mainBgColor: #333;
-$color: whitesmoke;
-
 body {
-  background-color: #333;
-  color: $color;
+  display: flex;
+  justify-content: center;
+  // background-color: white;
+  background-color: $mainBgColor;
 }
-.navbar-container {
-  color: $mainBgColor;
-  //background-color: red;
-  max-width: max-content;
-  border-radius: .3rem;
-  margin: auto;
-  margin-top: 5rem;
-  background-color: $color;
-  font-family: Arial, Helvetica, sans-serif;
 
-  .list {
-    display: flex;
-    list-style-type: none;
-    padding: .5rem 2rem;
+.navbar-container {
+  position: relative;
+  box-sizing: border-box;
+  top: 6rem;
+  // border: 2px solid red;
+  li {
+    padding: 0;
     margin: 0;
+    // border: 2px solid red;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .icons-list {
+    // border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background-color: white;
+    padding: 0 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    list-style-type: none;
     position: relative;
 
-    // border-radius: 0.3rem;
-    // width: 400px;
-
-    a {
-      text-decoration: none;
-      // color: red;
-      color: $mainBgColor;
-      display: block;
-      padding: 1rem 2rem;
-
+    .option {
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      // justify-content: space-between;
-      // height: ;
-
-
-    
-    .icon{
-        fill: currentColor;
-        position: relative;
-        // display: block;
-        // display: inline-block;
-        // display: block;
-     /*    width: 2em;
-        height: 2em; */
-        // height: 1rem;
-        
-        svg{
-          width: 2rem;
-          height: 2rem;
-          display: block;
-        }
-    }
-
-    .text{
-      font-size: .8rem;
-      opacity: 0;
-      // pointer-events: none;
-      transition: opacity 500ms ease-in-out;
-      display: none;
-
-
-    }
-
-    /* li{
-      // position: absolute;
-    } */
-  }
-
-  .active{
-    .text{
-      opacity: 1;
-      pointer-events: all;
-      // position:relative;
-      bottom: -1.5rem;
-      // top: 0;
-      // z-index: 1;
-
-    }
-
-    .icon{
-
-      transform: translateY(-100%);
+      text-decoration: none;
+      // color: green;
+      padding: 0.5rem 1rem;
+      position: relative;
       z-index: 1;
-      padding: .6rem;
-      position: absolute;
+      &:active {
+        color: $mainBgColor;
+      }
+      &:visited {
+        color: $mainBgColor;
+      }
 
-      
-      &::after{
-        content: "";
-      display: block;
-      position: absolute;
-      background-color: hsl(100, 100%, 50%);
-      border-radius: 50%;
+      .icon,
+      svg {
+        width: 2rem;
+        height: 2rem;
+        fill: $mainBgColor;
+        display: block;
+        margin-bottom: 0.2rem;
+        // stroke-width: 5px ;
+        // stroke: red;
+        // position: relative;
+        path {
+          // stroke: currentColor;
+          stroke-width: 0px;
+        }
+      }
 
-      z-index: -1;
-      top:-20%;
-      bottom:-20%;
-      left:-20%;
-      right:-20%;
+      .text {
+        // visibility: none;
+        // color: red;
+        display: none;
+        // transition: display 500ms ease-in-out;
+      }
     }
 
-    &::before{
-      display: block;
-      position: absolute;
-      content: "";
-      width: 5.2rem;
-      height: 5.2rem;
-      border-radius: 50%;
-      background-color: $mainBgColor;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-    }
-    
-  } 
 
-    &::before{
-      content: "";
-      display: block;
-      width: 1.6rem;
-      height: 1.6rem;
-      position: relative;
-      box-sizing: content-box;
+.active{
 
-      top:0rem;
-      left: -2.3rem;
-      border-top: 7px solid;
-      border-right: 7px solid;
-      border-top-right-radius: 100%;
-      
-      background-color: red;
-    }
-   /*  &::after{
-      content: "";
-      display: block;
-      width: 1.6rem;
-      height: 1.6rem;
-      position: relative;
-      box-sizing: content-box;
-   
+ 
 
-      right:-3.5rem;
-      top:-3rem;
-      transform: translate(100%);
-      
-      border-top: 7px solid;
-      border-left: 7px solid;
-      border-top-left-radius: 100%;
-      
-      background-color: red;
-    } */
-    
+  .icon{
+    position: relative;
+    transform: translateY(-60%);
+    transition: all 260ms ease-in-out;
   }
+  .text{
+    transition: display 500ms ease-in-out;
+    display: block;
+  }
+
+  
+  
+}
+ #indicator{
+  //  transition: 500ms ease-in-out;
+
+  position: absolute;
+  top: -9%;
+  --left-position: 0rem;
+  left:calc(0rem + var( --left-position)); 
+  // z-index: 0;
+  margin: .5rem 2rem;
+  // margin-bottom: .5rem ;
+  // margin-left: 2rem ;
+  transition: all 260ms ease-in-out;
+  .icon::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    transform: translate(-51%, -50%);
+    width: 100% * 2;
+    height: 100% * 2;
+    background-color: rgb(100, 100%, 50%);
+    z-index: -1;
+    border-radius: 50%;
+  }
+
+  .icon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(40%);
+    left: calc(50%);
+    transform: translate(-50%, -50%);
+    width: 100% * 2.28;
+    height: 100% * 2.28;
+    background-color: $mainBgColor;
+    z-index: -2;
+    border-radius: 50%;
+  }
+
+  $sideWidthSize: 1.2rem;
+  $sideHeightSize: 1.2rem;
+  $borderSize: 0.7rem;
+  &::before{
+    content: "";
+    display: block;
+    width: $sideWidthSize;
+    height: $sideHeightSize;
+    position: absolute;
+    left: -4%;
+    top:-26%;
+    // background-color: red;
+    border-top: $borderSize solid $mainBgColor;
+    border-right: $borderSize solid $mainBgColor;
+    border-top-right-radius: 90%;
+    z-index: 0;
+
+  }
+  &::after{
+    content: "";
+    display: block;
+    width: $sideWidthSize;
+    height: $sideHeightSize;
+    position: absolute;
+    right: -4%;
+    top:-26%;
+    // background-color: red;
+    border-top: $borderSize solid $mainBgColor;
+    border-left: $borderSize solid $mainBgColor;
+    border-top-left-radius: 90%;
+    z-index: 0;
+
+  }
+ }
+
+
   }
 }
